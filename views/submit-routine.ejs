@@ -1,0 +1,80 @@
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-bold fw-bold">Submit Your Routine</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, debitis.
+        </p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <% if(infoSubmitObj != '') { %>
+        <div class="col-8 alert alert-success" role="alert">
+          <%= infoSubmitObj %>
+        </div>
+    <% } %>
+
+    <% if(infoErrorsObj != '') { %>
+        <div class="col-8 alert alert-danger" role="alert">
+          <%= infoErrorsObj[0].message %>
+        </div>
+    <% } %>
+
+
+    <div class="col-8">
+        <form action="/submit-routine" enctype="multipart/form-data" method="POST">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control">
+                </div>
+
+                <div class="col-12">
+                    <label for="name" class="form-label">Routine Name</label>
+                    <input type="text" name="name" id="name" class="form-control" >
+                </div>
+
+                <div class="col-12">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="4" class="form-control"></textarea>
+                </div>
+
+                <div class="col-12">
+                    <label for="name" class="form-label">Routines</label><br>
+                    <small>Example: Jumping jacks</small>
+                    <div class="routineList">
+                        <div class="routineDiv mb-1">
+                            <input type="text" name="routine" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button type="button" class="btn btn-outline-primary" id="addRoutinesBtn">+ Routine</button>
+                </div>
+
+                <div class="col-12">
+                    <label for="category">Select Category</label>
+                    <select name="category" id="" class="form-select form-control" aria-label="Category">
+                        <option selected>Select Category</option>
+                        <option value="Ropes">Ropes</option>
+                        <option value="PullUps">PullUps</option>
+                        <option value="Weight">Weight</option>
+                        <option value="Legs">Legs</option>
+                        <option value="Biceps">Biceps</option>
+                        <option value="Running">Running</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <label for="image">Gym Image</label>
+                    <input type="file" name="image" class="form-control" accept="image/*">
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit Routine</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

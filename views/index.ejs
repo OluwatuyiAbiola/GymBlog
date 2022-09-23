@@ -1,0 +1,157 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+        <img src="/img/anastase-maragos-7kEpUPB8vNk-unsplash.jpg" alt="GymBlog" class="d-block mx-lg-auto img-fluid image" loading="lazy" width="1600" height="1720" >
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 mb-3 fw-bold">
+            Gym routines for a better shape
+        </h1>
+        <p class="lead">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam , amet consequatur necessitatibus cumque quas sequi officia beatae dolorem, praesentium tempora.
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="/explore-latest" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Explore Latest</a>
+            <a href="/explore-random" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Show random</a>
+        </div>
+    </div>
+</div>
+
+<!-- Categories Start -->
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+
+    <% if (categories != " ") { %>
+        <% categories.forEach((category, index) => { %>
+            <a href="/categories/<%= category.name %>" class="col text-center category__link">
+                <div class="category__img shadow">
+                    <img src="/img/<%= category.image %>  " alt="<%= category.name %> ">
+                </div>
+                <div class="pt-1"><%= category.name %></div>
+            </a>
+        <% }) %>  
+    <% } %>
+
+    
+
+    <a href="/categories" class="col text-center category__link">
+        <div class="category__img shadow">
+            <img src="/img/alonso-reyes-0HlI76m4jxU-unsplash.jpg" alt="GymBlog">
+        </div>
+        <div class="pt-1">View All</div>
+    </a>
+</div>
+
+<!-- Categories End -->
+
+
+
+<!-- Latest Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex align-item-center mb-2">
+        <h2>New Routines</h2>
+        <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if (workout != " ") { %>
+            <% workout.latest.forEach( (routine, index) => { %>
+                <a href="/routine/<%= routine._id%>" class="col text-center category__link "> 
+                    <div class="category__img category__img--large shadow">
+                        <img src="/uploads/<%= routine.image %> " alt="<%= routine.name %>">
+                    </div>
+                    <div class="pt-1"><%= routine.name %></div>
+                </a>
+            <% }) %>
+        <% } %>
+    </div>
+</section>
+<!-- Latest End -->
+
+<!-- Ropes Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex align-item-center mb-2">
+        <h2>Ropes Routines</h2>
+        <a href="/categories/Ropes" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if (typeof workout.ropes !== "undefined" && workout.ropes.length > 0) { %>
+            <% workout.ropes.forEach( (routine, index) => { %>
+                <a href="/routine/<%= routine._id%>" class="col text-center category__link "> 
+                    <div class="category__img category__img--large shadow">
+                        <img src="/uploads/<%= routine.image %> " alt="<%= routine.name %>">
+                    </div>
+                    <div class="pt-1"><%= routine.name %></div>
+                </a>
+            <% }) %>
+        <% } else {%>
+            <p>No item is found</p>
+        <% } %>
+    </div>
+</section>
+<!-- Ropes End -->
+
+<!-- Weight Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex align-item-center mb-2">
+        <h2>Weight Routines</h2>
+        <a href="/categories/Weight" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if (typeof workout.weight !== "undefined" && workout.weight.length > 0) { %>
+            <% workout.weight.forEach( (routine, index) => { %>
+                <a href="/routine/<%= routine._id%>" class="col text-center category__link "> 
+                    <div class="category__img category__img--large shadow">
+                        <img src="/uploads/<%= routine.image %> " alt="<%= routine.name %>">
+                    </div>
+                    <div class="pt-1"><%= routine.name %></div>
+                </a>
+            <% }) %>
+        <% } else {%>
+            <p>No item is found</p>
+        <% } %>
+    </div>
+</section>
+<!-- Weight End -->
+
+<!-- PullUps Start -->
+<section class="pb-4 pt-4">
+    <div class="d-flex align-item-center mb-2">
+        <h2>PullUps Routines</h2>
+        <a href="/categories/PullUps" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if (typeof workout.pullups !== "undefined" && workout.pullups.length > 0) { %>
+            <% workout.pullups.forEach( (routine, index) => { %>
+                <a href="/routine/<%= routine._id%>" class="col text-center category__link "> 
+                    <div class="category__img category__img--large shadow">
+                        <img src="/uploads/<%= routine.image %> " alt="<%= routine.name %>">
+                    </div>
+                    <div class="pt-1"><%= routine.name %></div>
+                </a>
+            <% }) %>
+        <% } else {%>
+            <p>No item is found</p>
+        <% } %>
+    </div>
+</section>
+<!-- Ropes End -->
+
+
+<!-- Submit -Start -->
+<section class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Publish your routine for free</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, aut.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/submit-routine" class="btn btn-lg btn-primary btn-dark">Submit Routine</a>
+        </div>
+    </div>
+
+</section>
+
+<!-- Submit End -->
+
